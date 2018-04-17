@@ -6,14 +6,15 @@ zvolene_slovo = opratka.zvol_slovo()
 
 def hledani(sluvko, pismenko):
     #print(sluvko)
+
     if pismenko in sluvko:
         print("Ano, to tam je!")
-
-
-
-
         pozice = sluvko.index(pismenko) * 2
         opratka.retezec = opratka.retezec[:pozice] + pismenko + opratka.retezec[pozice + 1:]
+
+        if sluvko.count(pismenko) > 1:
+            pozice = sluvko.index(pismenko, pozice) * 2
+            opratka.retezec = opratka.retezec[:pozice] + pismenko + opratka.retezec[pozice + 1:]
 
     else:
         print("Ne, to tam není.")
@@ -25,6 +26,8 @@ def hledani(sluvko, pismenko):
 def hra():
     while "_" in opratka.retezec:
         hledani(zvolene_slovo, input("Jaké zkusíš písmeno? "))
+
+
 
         if opratka.pocet_chyb == 10:
             print("Sorry, už visíš. Zkus to znovu.")
