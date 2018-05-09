@@ -25,15 +25,16 @@ def hledani(sluvko, pismenko):
     #prohledáme, jestli zadané písmenko je v tom vybraném řetězci
     if pismenko in sluvko:
         #když tam je, nahradíme podtržítko písmenkem
-        print("Ano, to tam je!")
-        pozice = sluvko.index(pismenko) * 2 #násobím 2, protože v řetězci mám mezery, aby to bylo hezčí
-        opratka.retezec = opratka.retezec[:pozice] + pismenko + opratka.retezec[pozice + 1:]
 
-        if sluvko.count(pismenko) > 1:
-            #tohle je furt blbě... když je tam víc stejných písmen, hledám pozici toho dalšího od toho prvního.
-            pozice = sluvko.index(pismenko, pozice) * 2
-            opratka.retezec = opratka.retezec[:pozice] + pismenko + opratka.retezec[pozice + 1:]
-            #to ale opraví jen dvě místa, nedokážu tam dostat cyklus, aby to udělalo na víc místech
+        seznam_pozic_pismene = []
+        for i, char in enumerate(sluvko):
+            #najdu, kde všude jsou ty stejné písmenka, musím vynásobit 2, protože v řetězci mám mezery, aby to bylo hezčí
+            if char == pismenko:
+                seznam_pozic_pismene.append(i * 2)
+
+        for j in seznam_pozic_pismene:
+            #podle seznamu nahradím na všech místech
+            opratka.retezec = opratka.retezec[:j] + pismenko + opratka.retezec[j + 1:]
 
     else:
         #když to tam není, přidám na počítadlo chybu a vykreslím šibenici

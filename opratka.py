@@ -8,7 +8,7 @@ pocet_chyb = 0
 
 def zvol_slovo():
     #seznam, ze kterého zvolíme slovo
-    slovo = ["balon", "zubař", "opice", "parno", "želva", "dveře", "kočka", "ratan"]
+    slovo = ["balon", "zubař", "opice", "parno", "želva", "dveře", "kočka", "ratan", "ježek", "lelek"]
     return choice(slovo)
 
 def sibenice():
