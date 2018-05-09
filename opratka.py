@@ -1,14 +1,18 @@
 from random import choice
 
+
+#úvodní nastavení: prázdný řetězec a žádné chyby
 retezec = "_ _ _ _ _"
 
 pocet_chyb = 0
 
 def zvol_slovo():
-    slovo = ["balon", "zubař", "opice", "dveře", "kočka", "parno", "želva", "ratan"]
+    #seznam, ze kterého zvolíme slovo
+    slovo = ["balon", "zubař", "opice", "parno", "želva", "dveře", "kočka", "ratan"]
     return choice(slovo)
 
 def sibenice():
+    #obrázky, které to vykreslí, když se bude navyšovat počet chyb
     if pocet_chyb == 1:
         print(
     """
